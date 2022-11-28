@@ -1,0 +1,261 @@
+/* starts globals */
+*{
+    margin: 0;
+    padding: 0;
+    transition: all 0.2s linear;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: terror;
+}
+
+:root{
+    --preto: #000; 
+    --cinza: rgba(110, 105, 105, 0.767);
+    --laranja: rgba(255, 102, 0, 0.863);
+    --roxo: rgba(128, 0, 128, 0.678);
+    --azul-escuro: rgb(6, 6, 65);
+    --borda: .1px solid var(--preto);
+    --fundo: rgb(14, 13, 13);
+    --vermelho: rgba(255, 0, 0, 0.411);
+    --branco: rgb(255, 255, 255);
+    --border-radius-4: 0.4rem;
+}
+
+html{
+    font-size: 62.5%;
+    overflow: hidden;
+}
+
+/* ends globals */
+
+/* starts fonts */
+@font-face {
+    font-family: terror;
+    src: url('../FONTS/Lacquer-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ends fonts */
+
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+/* starts text-terror */
+.text{
+    font-size: 10rem;
+    color: var(--branco);
+    text-align: center;
+}
+
+#btn-form:hover {
+    cursor: pointer;
+    font-size: 11rem;
+    background-color: rgb(43, 41, 41);
+    margin-top: 2rem;
+    border-radius: var(--border-radius-4);
+}
+
+/* ends text-terror */
+
+/* starts model form */
+
+.model {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.model.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(#202020, #3f3d3d, #71749b);
+    border-radius: var(--border-radius-4);
+    padding: 3rem 3rem;
+    width: 35%;
+    border-radius: 0.6rem;
+    border: var(--borda);
+    font-size: 3rem;
+    border: none;
+}
+
+#formLogin {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#alertInputEmpty {
+    background-color: rgb(224, 82, 82);
+    color: #000;
+    width: 35%;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    border-radius: var(--border-radius-4);
+    visibility: hidden;
+    opacity: 0;
+    padding: 0.7rem;
+}
+
+#alertInputEmpty.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+input.box {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--preto);
+    padding: 1rem;
+    border-radius: var(--border-radius-4);
+    width: 80%;
+    color: var(--branco);
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+#name {
+    width: 90%;
+}
+
+input.box::placeholder {
+    color: var(--branco);
+    background-color: #000;
+}
+
+.container-sexo {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#textSex {
+    text-align: center;
+}
+
+.btn{
+    background-color: var(--preto);
+    border-radius: var(--border-radius-4);
+    text-transform: capitalize;
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 1rem 1rem;
+    cursor: pointer;
+    color: var(--branco);
+    font-size: 2rem;
+}
+
+#btnSubmit a {
+    color: #fff;
+}
+
+.btn:hover{
+    background-color: rgb(71, 70, 70);
+}
+
+/* ends model form */
+
+/* starts medias query */
+@media(max-width: 1100px) {
+    form {
+        padding: 1rem;
+    }
+
+    span {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+}
+
+@media(max-width:950px) {
+    .text {
+        font-size: 6rem;
+    }
+
+    #btn-form:hover {
+        font-size: 7rem;
+    }
+
+    form {
+        width: 50%;
+    }
+
+    #alertInputEmpty {
+        width: 50%;
+    }
+}
+
+@media(max-width: 800px) {
+    form {
+        width: 70%;
+    }
+
+    #alertInputEmpty {
+        width: 70%;
+    }
+}
+
+@media(max-width: 700px) {
+    .text {
+        font-size: 4rem;
+    }
+
+    input.box#name::placeholder {
+        font-size: 1.5rem;
+    }
+
+    #btn-form:hover {
+        font-size: 5rem;
+    }
+}
+
+@media(max-width: 600px) {
+    input.box#name::placeholder {
+        font-size: 1.3rem;
+    }
+}
+
+@media(max-width: 370px) {
+    h1 {
+        font-size: 6rem;
+    }
+
+    .btn {
+        font-size: 1.6rem;
+        padding: 0.6rem;
+    }
+
+    span {
+        font-size: 1.7rem;
+    }
+}
+/* ends medias query */

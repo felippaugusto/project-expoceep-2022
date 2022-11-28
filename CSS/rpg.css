@@ -1,0 +1,253 @@
+/* starts globals */
+@font-face {
+    font-family: font-pixel-bold;
+    src: url("../FONTS/Silkscreen-Bold.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: font-pixel-regular;
+    src: url("../FONTS/Silkscreen-Regular.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: 0.2s linear;
+    font-size: 1.6rem;
+}
+
+html {
+    font-size: 62.5%;
+}
+/* ends globals */
+
+body {
+    background-color: #111010;
+    overflow-x: hidden;
+}
+
+/* starts introduction */
+#introduction {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 5;
+    background-color: #000;
+    top: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    visibility: visible;
+    opacity: 1;
+}
+
+#introduction.active {
+    visibility: hidden;
+    opacity: 0;
+}
+
+#introduction p {
+    text-align: center;
+    color: #fff;
+    font-size: 2.5rem;
+    font-family: font-pixel-regular;
+}
+
+/* ends introduction */
+
+/* starts image */
+.container-image {
+    height: 70vh;
+    width: 100vw;
+}
+
+#image {
+    height: 100%;
+    width: 100%;
+}
+
+/* ends image */
+
+/* starts container story */
+#container-story {
+    min-height: 30vh;
+    width: 100vw;
+    border: 1.2rem solid purple;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* title story */
+.chapter {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #8f8a8a;
+    text-align: center;
+}
+
+/* player or NPCs */
+#person {
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgb(255, 0, 0);
+}
+
+.story {
+    width: 90%;
+    color: purple;
+    font-size: 3rem;
+    text-align: justify;
+}
+/* ends container story */
+
+/* starts mask and options */
+.model {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    visibility: visible;
+    opacity: 1;
+}
+
+.model.active {
+    visibility: hidden;
+    opacity: 0.5;
+}
+
+.btn.options {
+    padding: 4.5rem;
+    width: 25%;
+    height: 10%;
+    background: linear-gradient(#2A5470, #4C4177);
+    font-size: 2rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    border: none;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.options:hover {
+    background: linear-gradient(#272727, #50547e);
+}
+/* ends mask and options */
+
+/* starts choose options */
+.message {
+    position: absolute;
+    z-index: 3;
+    top: 3%;
+    left: 3%;
+    background: linear-gradient(#ff0364, #d12768, #ff0040);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    width: 33rem;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    visibility: visible;
+    opacity: 1;
+}
+
+.message.active {
+    visibility: hidden;
+    opacity: 0;
+}
+/* ends choose options */
+
+/* starts counter */
+#counter {
+    position: absolute;
+    z-index: 3;
+    top: 3%;
+    right: 3%;
+    background-color: rgb(204, 36, 2);
+    width: 20%;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 1.5rem;
+    font-size: 5rem;
+    visibility: visible;
+    opacity: 1;
+    font-weight: 800;
+}
+
+#counter.active {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* starts transition image */
+.transitionImage {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 1);
+    visibility: visible;
+}
+
+.transitionImage.active {
+    transition: 2s linear;
+    opacity: 0;
+    visibility: hidden;
+}
+/* ends transition image */ 
+
+/* ends counter */
+
+/* starts media queries */
+@media(max-width:900px) {
+    .container-image {
+        height: 60vh;
+    }
+    #container-story {
+        min-height: 40vh;
+    }
+    .model {
+        flex-direction: column;
+    }
+    .btn.options {
+        width: 80vw;
+    }
+}
+
+@media(max-width: 600px) {
+    .story {
+        font-size: 2.5rem;
+    }
+}
+
+@media(max-width: 500px) {
+    .message {
+        font-size: 2rem;
+        width: 22rem;
+    }
+
+    #counter {
+        top: 2.5%;
+    }
+}
+/* ends media queries */

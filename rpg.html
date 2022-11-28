@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/rpg.css">
+    <link rel="shortcut icon" href="IMG/ICON/icon-spooky.png" type="image/x-icon">
+</head>
+<body>
+    <!-- top image -->
+    <div class="container-image">
+        <img src="IMG/paisagem13.png" alt="" id="image">
+    </div>
+
+    <!-- introduction -->
+    <div id="introduction" class="active">
+        <p id="introductionPhraseOne"></p>
+        
+        <p id="introductionPhraseTwo"></p>
+    </div>
+
+    <!-- box text story -->
+    <div id="container-story">
+        <p class="chapter"></p>
+        <p class="story">
+            <spam id="person"></spam>
+        </p>
+    </div>
+
+    <!-- options -->
+    <div class="model active">
+        <button class="btn options option1"></button>
+        <button class="btn options option2"></button>   
+        <button class="btn options option3"></button>
+    </div>
+    <!-- after choose option -->
+    <p class="message active">Opção escolhida</p>
+
+    <!-- counter -->
+    <p id="counter" class="active">10</p>
+
+    <!-- change images smoothly -->
+    <div class="transitionImage active"></div>
+
+    <!-- tracks in background -->
+        <audio src="" autoplay loop class="tracks"></audio>
+        <audio src="" autoplay class="machineWrite"></audio>
+
+    <script src="JS/jquery.js"></script>
+    <script src="JS/rpg.js"></script>
+</body>
+</html>
