@@ -1,5 +1,6 @@
 // variables globals
 const playerName = sessionStorage.getItem('playerName');
+const playerNameFormat = playerName[0].toUpperCase() + playerName.substring(1);
 const model = $(".model");
 const counter = $("#counter");
 const btnOptions = $(".btn");
@@ -45,17 +46,17 @@ const arrayChapterOne = [
     `${playerOrNPC.textContent = "Voz desconhecida:"} (Olha para você com uma feição amigável) Vou me sentar aqui
     também...`,
 
-    `${playerName.textContent = "Jogador:"} Está bem... ( Escorrega para o lado) Você mora aqui?`,
+    `${playerNameFormat.textContent = "Jogador:"} Está bem... ( Escorrega para o lado) Você mora aqui?`,
 
-    `${playerName.textContent = "Voz desconhecida:"} Sim, me mudei para cá faz pouco tempo. Ahh falando nisso me chamo
+    `${playerNameFormat.textContent = "Voz desconhecida:"} Sim, me mudei para cá faz pouco tempo. Ahh falando nisso me chamo
     Emily (Emily sorri)`,
 
-    `${playerName.textContent = "Jogador:"} Legal conhecer você, Emily. Me chamo ${playerName} ( olho para meu relógio de
+    `${playerNameFormat.textContent = "Jogador:"} Legal conhecer você, Emily. Me chamo ${playerNameFormat} ( olho para meu relógio de
     braço e percebo que está escurecendo).`,
 
     // after choose option 2
     // option 1
-    `${playerOrNPC.textContent = playerName}: Está ficando escuro demais, você vai voltar para sua casa? Poderíamos ir
+    `${playerOrNPC.textContent = playerNameFormat}: Está ficando escuro demais, você vai voltar para sua casa? Poderíamos ir
     conversando... (Se levanta no banco olhando para ela).`,
 
     `${playerOrNPC.textContent = "Emily:"} Tá bom, podemos ir (Se levanta também).`,
@@ -66,23 +67,23 @@ const arrayChapterOne = [
     // option 2
     `( Me levanto do banco olhando para Emily)`,
 
-    `${playerOrNPC.textContent = playerName}: Eu preciso ir, está ficando muito tarde... Até mais (Acena dando tchau).`,
+    `${playerOrNPC.textContent = playerNameFormat}: Eu preciso ir, está ficando muito tarde... Até mais (Acena dando tchau).`,
 
-    `${playerOrNPC.textContent = "Emily:"} Oh, é mesmo!! Nem vi a hora passar… Até mais, ${playerName} (Acena e sai andando)`,
+    `${playerOrNPC.textContent = "Emily:"} Oh, é mesmo!! Nem vi a hora passar… Até mais, ${playerNameFormat} (Acena e sai andando)`,
 
     `(Você volta para casa, e o sentimento de solidão te consome, é ruim estar sozinho)`,
 
     // option 3
-    `${playerOrNPC.textContent = playerName}: Então, você está trabalhando ou só estudando? É que normalmente quem vem morar aqui é por causa de trabalho ou por estudos, já que a vila é próxima da cidade grande.`,
+    `${playerOrNPC.textContent = playerNameFormat}: Então, você está trabalhando ou só estudando? É que normalmente quem vem morar aqui é por causa de trabalho ou por estudos, já que a vila é próxima da cidade grande.`,
 
     `${playerOrNPC.textContent = "Emilly:"} Eu estava passeando hoje por aqui, vendo as lojas…Mas eu estou só estudando no
     momento, é difícil focar nos estudos e ter que trabalhar ao mesmo tempo. ( Emily se levanta
     do banco) Eu preciso ir, preciso terminar de arrumar a bagunça da mudança.`,
 
-    `${playerOrNPC.textContent = playerName}: A-Ata, tá bom, eu também já vou indo. Até mais, Emily ( se despede e espera por
+    `${playerOrNPC.textContent = playerNameFormat}: A-Ata, tá bom, eu também já vou indo. Até mais, Emily ( se despede e espera por
     mais uns minutos).`,
 
-    `${playerOrNPC.textContent = "Emilly:"} Thau ${playerName} vai embora correndo).`,
+    `${playerOrNPC.textContent = "Emilly:"} Thau ${playerNameFormat} vai embora correndo).`,
 
     `(Após a ida de Emily você continua no banco, ouvido o barulho do silêncio)`,
 
@@ -125,7 +126,7 @@ const arrayFinalStory = [
 
 $(document).ready(function() {
     playerOrNPC.textContent = "";
-    introductionOrFinal(arrayIntroduction, 0, 2000, 9000, "TRACKS/machine-typing.mp3");
+    //introductionOrFinal(arrayIntroduction, 0, 2000, 9000, "TRACKS/machine-typing.mp3");
     
     changingImages("IMG/IMGFULLHD/paisagem14.png");
 
