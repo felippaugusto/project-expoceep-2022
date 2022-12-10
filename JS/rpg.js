@@ -126,7 +126,7 @@ const arrayFinalStory = [
 
 $(document).ready(function() {
     playerOrNPC.textContent = "";
-    //introductionOrFinal(arrayIntroduction, 0, 2000, 9000, "TRACKS/machine-typing.mp3");
+    introductionOrFinal(arrayIntroduction, 0, 2000, 9000, "TRACKS/machine-typing.mp3");
     
     changingImages("IMG/IMGFULLHD/paisagem14.png");
 
