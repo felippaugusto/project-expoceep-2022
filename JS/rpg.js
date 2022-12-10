@@ -9,7 +9,7 @@ const btnOption3 = $(".option3");
 const tagImage = $("#image");
 const transitionImage = $(".transitionImage");
 const messageOption = $(".message");
-const machineTyping = $(".machineWrite");
+const audioInBackground = $("audio");
 const chapter = document.querySelector(".chapter");
 const playerOrNPC = document.querySelector("#person");
 const story = document.querySelector(".story");
@@ -125,7 +125,7 @@ const arrayFinalStory = [
 
 $(document).ready(function() {
     playerOrNPC.textContent = "";
-    introductionOrFinal(arrayIntroduction, 0, 2000, 9000);
+    introductionOrFinal(arrayIntroduction, 0, 2000, 9000, "TRACKS/machine-typing.mp3");
     
     changingImages("IMG/IMGFULLHD/paisagem14.png");
 
@@ -151,7 +151,7 @@ $(document).ready(function() {
     })
 
     btnOption3.click(function() {
-        flagsOptions = 3;
+        flagsOptions    = 3;
     })
 });
 
@@ -159,7 +159,7 @@ $(document).ready(function() {
 let textoArray;
 position = 0;
 let finalPosition = 0;
-function typeWriter(elementText, arrayStory) {
+function typeWriter(elementText, arrayStory, audioTyping) {
     if(elementText === 0 && arrayStory === 0 && position === 0) {
         throw "está vazio";
     }
@@ -172,8 +172,11 @@ function typeWriter(elementText, arrayStory) {
         counter += 60;
         setTimeout(function() {
             elementText.innerHTML += letra;
-            machineTyping.attr("src", "TRACKS/machine-typing.mp3");
 
+            if(!audioTyping == 0) {
+                audioInBackground.attr("src", audioTyping);
+            }
+        
             if(story.textContent.length == textoArray.length) {
                 setTimeout(function() {
                     chapter.textContent = "";
@@ -205,6 +208,25 @@ function changingImages(image) {
     }, 2100);
 }
 
+// function that changes music with animation
+let intervalMusic;
+let volume = 1;
+let whatMusic;
+function changingBackgroundMusic() {
+    if(volume > 0) {
+        audioInBackground.prop("volume", volume.toFixed(1));
+        volume -= 0.1;
+    }
+    else {
+        clearInterval(intervalMusic);
+        setTimeout(function() {
+            audioInBackground.prop("volume", 1);
+            volume = 1;
+            audioInBackground.attr("src", whatMusic);
+        }, 1000);
+    }
+}
+
 // counter options
 function counterOptions() {
     const numberCounter = counter.text();
@@ -227,7 +249,7 @@ function counterOptions() {
     }
 }
 
-function introductionOrFinal(introductionOrFinal, condition, timerFirstPhrase, timerSecondPhrase) {
+function introductionOrFinal(introductionOrFinal, condition, timerFirstPhrase, timerSecondPhrase, audioTyping) {
     introductionPhraseOne.textContent = "";
     introductionPhraseTwo.textContent = "";
 
@@ -238,13 +260,13 @@ function introductionOrFinal(introductionOrFinal, condition, timerFirstPhrase, t
     
     setTimeout(function() {
         position = 0;
-        typeWriter(introductionPhraseOne, introductionOrFinal);
+        typeWriter(introductionPhraseOne, introductionOrFinal, audioTyping);
     }, time);
 
     time = timerSecondPhrase;
     setTimeout(function() {
         position = 1;
-        typeWriter(introductionPhraseTwo, introductionOrFinal);
+        typeWriter(introductionPhraseTwo, introductionOrFinal, audioTyping);
     }, time);
 
     if(time == timerSecondPhrase && conditionIntroductionOrFinal == 0) {
@@ -254,7 +276,7 @@ function introductionOrFinal(introductionOrFinal, condition, timerFirstPhrase, t
         }, time);
 
         setTimeout(function() {
-            $("audio").attr("src", "TRACKS/sorriso.mp3");
+            audioInBackground.attr("src", "TRACKS/sorriso.mp3");
             console.log("passou pela introdução");
             flag = 1;
             position = 0;
@@ -283,7 +305,7 @@ const utils = {
         try {
             position = 0;
             textoArray = 0;
-            typeWriter(0, 0);
+            typeWriter(0, 0, 0);
         } catch(e) {
             console.log(e);
         }
@@ -291,7 +313,7 @@ const utils = {
 
     pauseAfterChooseOption(storyOrChapter, arrayStory) {
         setTimeout(function() {
-            typeWriter(storyOrChapter, arrayStory);
+            typeWriter(storyOrChapter, arrayStory, 0);
         }, 4500);
     },
 
@@ -347,7 +369,8 @@ function executionStory() {
         utils.executingErrorAndOption(0, "", "", "");
         setTimeout(function() {
             utils.executingStoryAndImage(21, 28, "IMG/IMGFULLHD/paisagem2.jpg", story, arrayChapterOne);
-            $("audio").attr("src", "TRACKS/nao-abra-a-porta.mp3");
+            intervalMusic = setInterval(changingBackgroundMusic, 500);
+            whatMusic = "TRACKS/nao-abra-a-porta.mp3";
         }, 9000);
     }
     else if(position == finalPosition && flag == 3 && condition === false) {
@@ -367,6 +390,6 @@ function executionStory() {
     }
     else if(flag == 5 && !noRepeat == 1) {
         console.log("deu certo");
-        introductionOrFinal(arrayFinalStory, 1, 5000, 9000);
+        introductionOrFinal(arrayFinalStory, 1, 5000, 9000, 0);
     }
 }
