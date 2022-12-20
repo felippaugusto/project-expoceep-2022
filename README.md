@@ -4,4 +4,4 @@ HTML, CSS e JS
 
 The game consists of a story told, where the user determines the paths in the development of the story.
 
-The project is being created to present within my school (CEEP) at the EXPOCEEP event
+The project is being created to present within my school (CEEP) at the 2022 EXPOCEEP event
